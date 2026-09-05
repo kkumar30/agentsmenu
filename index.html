@@ -78,7 +78,7 @@
     <p class="lede">45% of people now ask an AI tool where to eat, and 83% of restaurants never come up. This is how yours does.</p>
 
     <svg class="diagram" id="diagram" viewBox="0 0 1000 420" role="img" aria-label="Animated diagram: your menu from Clover, Square, Toast, or a photo flows into your page; the page is wired to Google, Apple, and Bing; an assistant reads the page and places an order; the ticket prints in the kitchen and the cook taps Ready.">
-      <defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" class="dot"/></pattern></defs>
+      <defs><clipPath id="tclip"><rect x="800" y="200" width="140" height="140"/></clipPath><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" class="dot"/></pattern></defs>
       <rect x="0" y="0" width="1000" height="420" fill="url(#dots)"/>
 
       <path id="p1" class="ln" d="M118,232 L298,232"/>
@@ -126,13 +126,13 @@
         <rect class="blk" x="800" y="150" width="140" height="44" rx="4"/>
         <circle class="sun" cx="816" cy="172" r="3"/>
         <rect class="pslot" x="814" y="194" width="112" height="6"/>
-        <g id="tkt" opacity="0" transform="translate(0,-118)">
+        <g clip-path="url(#tclip)"><g id="tkt" opacity="0" transform="translate(0,-118)">
           <rect class="ins" x="822" y="200" width="96" height="118"/>
           <line class="fg" x1="834" y1="216" x2="880" y2="216"/><line class="fg" x1="834" y1="230" x2="896" y2="230"/><line class="fg" x1="834" y1="244" x2="872" y2="244"/>
           <text class="tk" x="834" y="268">2 AL PASTOR</text><text class="tk" x="834" y="280">1 HORCHATA</text>
           <rect class="sun" id="readyBtn" x="834" y="292" width="60" height="16" rx="2"/>
           <text class="tkb" x="864" y="303" text-anchor="middle">READY</text>
-        </g>
+        </g></g>
       </g>
       <g class="lbl"><rect x="800" y="116" width="140" height="22" rx="2"/><text x="870.0" y="130.5" text-anchor="middle">YOUR KITCHEN</text></g>
       <g class="lbl il"><rect x="776" y="344" width="216" height="22" rx="2"/><image href="assets/logos/clover.svg" x="784" y="348" width="14" height="14"/><image href="assets/logos/square.svg" x="802" y="348" width="14" height="14"/><use href="#i-printer" x="820" y="348" width="14" height="14"/><text x="842" y="358.5" text-anchor="start">CLOVER · SQUARE · PRINTER</text></g>

@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Counter</title>
+  <meta name="description" content="Counter makes an independent restaurant agent-ready: a live pickup page that Claude, ChatGPT, and Google can find, read, and order from, with the ticket sent straight to your kitchen. $99 a month, nothing per order.">
+  <meta name="color-scheme" content="light only">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Counter">
+  <meta property="og:description" content="Make your restaurant AI agent-ready. Get your live pickup page in 3 hours. $99 a month. Nothing per order.">
+  <meta property="og:site_name" content="Counter">
+  <!-- og:url and og:image are intentionally absent until the site has a domain and a share image; see README. -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-printer" viewBox="0 0 24 24"><path d="M6 3h12v5H6zM4 9h16a2 2 0 0 1 2 2v6h-4v4H6v-4H2v-6a2 2 0 0 1 2-2zm4 7v4h8v-4z"/></symbol></defs></svg>
+<div class="wrap">
+  <nav class="nav" aria-label="Primary">
+    <a class="logo" href="#top">Counter<span>.</span></a>
+    <ul>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#agent">Agent-ready</a></li>
+      <li><a href="#works">Works with</a></li>
+      <li><a href="#price">Price</a></li>
+      <li><a href="#faq">Questions</a></li>
+      <li><a class="pill" href="#start">Get agent-ready</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero" id="top">
+    <div>
+      <p class="kicker">Make your restaurant AI agent-ready</p>
+      <h1>Get your live page in 3 hours.</h1>
+      <p class="lead">People now ask Claude, ChatGPT, and Google where to eat. An agent-ready restaurant is one the assistant can find, read, and order from. Counter makes yours one, and sends the pickup order straight to your kitchen. $99 a month. Nothing per order.</p>
+      <div class="cta">
+        <a class="btn primary" href="#start">Send a photo of your menu</a>
+        <a class="btn" href="#how">See how it works</a>
+      </div>
+      <div class="fine works-row"><span>Works with</span><img class="bi" src="assets/logos/clover.svg" alt="Clover"><img class="bi" src="assets/logos/square.svg" alt="Square"><img class="bi" src="assets/logos/toast.svg" alt="Toast"><img class="bi" src="assets/logos/stripe.svg" alt="Stripe"><span>· No app. No tablet. You keep every customer.</span></div>
+    </div>
+
+    <div class="mock" id="mock" aria-label="Example: a customer asks an assistant for pickup, a ticket prints in the kitchen, and the customer gets a text when it is ready">
+      <div class="app">
+        <div class="titlebar"><span class="tl"><i></i><i></i><i></i></span><span class="appname" id="appName"><img class="bi" src="assets/logos/claude.svg" alt="">Claude</span></div>
+        <div class="chat">
+          <div class="msg user m1"><span class="who" id="who1">Customer, in Claude</span>Two al pastor tacos and a horchata for pickup at 12:30, near the office.</div>
+          <div class="msg ai m2"><span class="who">Assistant</span><span class="typing" aria-hidden="true"><i></i><i></i><i></i></span><span class="body">Taqueria Sol, 4 minutes away, open, ready by 12:30. <b>2 × al pastor $8.50, horchata $3.50, total $12.96.</b> Pay now or at the counter?</span></div>
+          <div class="msg user m3"><span class="who">Customer</span>Pay now. Text me when it's ready.</div>
+        </div>
+        <div class="composer" id="composer">Reply to Claude…</div>
+      </div>
+      <div class="down m4">↓ arrives in the kitchen as</div>
+      <div class="printer m5">
+        <div class="slot"></div>
+        <div class="ticket">
+          <div class="h"><span>Pickup · 12:30</span><span>#42 · via Claude</span></div>
+          <div class="r"><span>2 Al pastor taco</span><span>8.50</span></div>
+          <div class="r"><span>1 Horchata</span><span>3.50</span></div>
+          <div class="r"><span>Tax</span><span>0.96</span></div>
+          <div class="r sum"><span>Paid, card</span><span>12.96</span></div>
+          <div class="r keep"><span>To your Stripe</span><span>12.28</span></div>
+          <div class="ready m6"><span class="a">TAP WHEN READY →</span><span class="b">✓ READY</span></div>
+        </div>
+      </div>
+      <div class="down m7">↓ and the customer gets</div>
+      <div class="sms m8"><span class="who">Text message · 12:31</span><b>Taqueria Sol:</b> your order #42 is ready. Pickup counter on the left. Reply HELP for the kitchen.</div>
+    </div>
+  </div>
+
+  <section id="how">
+    <p class="eyebrow">How it works</p>
+    <h2>Agent-ready in four steps. You do the first one.</h2>
+    <p class="lede">45% of people now ask an AI tool where to eat, and 83% of restaurants never come up. This is how yours does.</p>
+
+    <svg class="diagram" id="diagram" viewBox="0 0 1000 420" role="img" aria-label="Animated diagram: your menu from Clover, Square, Toast, or a photo flows into your page; the page is wired to Google, Apple, and Bing; an assistant reads the page and places an order; the ticket prints in the kitchen and the cook taps Ready.">
+      <defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" class="dot"/></pattern></defs>
+      <rect x="0" y="0" width="1000" height="420" fill="url(#dots)"/>
+
+      <path id="p1" class="ln" d="M118,232 L298,232"/>
+      <path id="p2a" class="ln" d="M462,200 C520,200 520,132 578,132"/>
+      <path id="p2b" class="ln" d="M462,232 L578,232"/>
+      <path id="p2c" class="ln" d="M462,264 C520,264 520,332 578,332"/>
+      <path id="p3" class="ln" d="M440,60 C440,100 380,100 380,148"/>
+      <path id="p4" class="ln" d="M380,312 L380,386 L760,386 L760,176 L798,176"/>
+      <path id="p5" class="ln" d="M940,318 L870,306" opacity="0"/>
+
+      <g class="node" id="n1">
+        <rect class="blk" x="48" y="160" width="70" height="140" rx="8"/>
+        <rect class="ins" x="57" y="174" width="52" height="96" rx="2"/>
+        <line class="fg" x1="66" y1="190" x2="100" y2="190"/><line class="fg" x1="66" y1="204" x2="96" y2="204"/><line class="fg" x1="66" y1="218" x2="98" y2="218"/><line class="fg" x1="66" y1="232" x2="92" y2="232"/><line class="fg" x1="66" y1="246" x2="98" y2="246"/>
+        <circle class="fg" cx="83" cy="284" r="4"/>
+      </g>
+      <g class="lbl"><rect x="8" y="128" width="196" height="22" rx="2"/><text x="106.0" y="142.5" text-anchor="middle">YOUR MENU</text></g>
+      <g class="lbl il"><rect x="8" y="312" width="196" height="22" rx="2"/><image href="assets/logos/clover.svg" x="16" y="316" width="14" height="14"/><image href="assets/logos/square.svg" x="34" y="316" width="14" height="14"/><image href="assets/logos/toast.svg" x="52" y="316" width="14" height="14"/><text x="74" y="326.5" text-anchor="start">CLOVER · SQUARE · TOAST</text></g>
+      <g class="lbl"><rect x="8" y="340" width="196" height="22" rx="2"/><text x="106.0" y="354.5" text-anchor="middle">OR A PHOTO</text></g>
+      <path id="k1a" class="pk" d="M-7,-5 L2,0 L-7,5 L-4,0z" opacity="0"/><path id="k1b" class="pk" d="M-7,-5 L2,0 L-7,5 L-4,0z" opacity="0"/><path id="k1c" class="pk" d="M-7,-5 L2,0 L-7,5 L-4,0z" opacity="0"/>
+
+      <g class="node" id="n2">
+        <rect class="blk" x="300" y="150" width="160" height="162" rx="3"/>
+        <rect class="sun" x="300" y="150" width="160" height="8"/>
+        <line class="fg" x1="316" y1="180" x2="400" y2="180"/><line class="fg" x1="316" y1="198" x2="430" y2="198"/><line class="fg" x1="316" y1="216" x2="410" y2="216"/><line class="fg" x1="316" y1="234" x2="426" y2="234"/><line class="fg" x1="316" y1="252" x2="396" y2="252"/>
+        <rect class="sun" x="316" y="276" width="64" height="16" rx="2"/>
+      </g>
+      <g class="lbl" id="l_page" opacity="0"><rect x="300" y="116" width="160" height="22" rx="2"/><text x="380.0" y="130.5" text-anchor="middle">YOUR PAGE</text></g>
+      <g class="lbl on" id="l_menu" opacity="0"><rect x="300" y="326" width="76" height="22" rx="2"/><text x="338.0" y="340.5" text-anchor="middle">MENU LIVE</text></g>
+      <g class="lbl on il" id="l_stripe" opacity="0"><rect x="384" y="326" width="76" height="22" rx="2"/><image href="assets/logos/stripe.svg" x="392" y="330" width="14" height="14"/><text x="414" y="340.5" text-anchor="start">SET</text></g>
+
+      <g class="lbl il"><rect x="580" y="120" width="110" height="22" rx="2"/><image href="assets/logos/google.svg" x="588" y="124" width="14" height="14"/><text x="610" y="134.5" text-anchor="start">GOOGLE</text></g><g class="lbl il"><rect x="580" y="220" width="110" height="22" rx="2"/><image href="assets/logos/apple.svg" x="588" y="224" width="14" height="14"/><text x="610" y="234.5" text-anchor="start">APPLE</text></g><g class="lbl il"><rect x="580" y="320" width="110" height="22" rx="2"/><image href="assets/logos/microsoftbing.svg" x="588" y="324" width="14" height="14"/><text x="610" y="334.5" text-anchor="start">BING</text></g>
+      <path id="k2a" class="pk" d="M-7,-5 L2,0 L-7,5 L-4,0z" opacity="0"/><path id="k2b" class="pk" d="M-7,-5 L2,0 L-7,5 L-4,0z" opacity="0"/><path id="k2c" class="pk" d="M-7,-5 L2,0 L-7,5 L-4,0z" opacity="0"/>
+      <g id="c1" opacity="0"><circle class="okc" cx="704" cy="131" r="8"/><path d="M700,131 l3,3 6,-6" class="okm"/></g><g id="c2" opacity="0"><circle class="okc" cx="704" cy="231" r="8"/><path d="M700,231 l3,3 6,-6" class="okm"/></g><g id="c3" opacity="0"><circle class="okc" cx="704" cy="331" r="8"/><path d="M700,331 l3,3 6,-6" class="okm"/></g>
+      <g class="lbl on" id="l_link" opacity="0"><rect x="580" y="360" width="150" height="22" rx="2"/><text x="655.0" y="374.5" text-anchor="middle">ORDERS GO TO YOUR PAGE</text></g>
+
+      <g class="lbl il"><rect x="292" y="38" width="96" height="22" rx="2"/><image href="assets/logos/claude.svg" x="300" y="42" width="14" height="14"/><text x="322" y="52.5" text-anchor="start">CLAUDE</text></g><g class="lbl il"><rect x="396" y="38" width="96" height="22" rx="2"/><image href="assets/logos/openai.svg" x="404" y="42" width="14" height="14"/><text x="426" y="52.5" text-anchor="start">CHATGPT</text></g><g class="lbl il"><rect x="500" y="38" width="96" height="22" rx="2"/><image href="assets/logos/google.svg" x="508" y="42" width="14" height="14"/><text x="530" y="52.5" text-anchor="start">GOOGLE</text></g>
+      <path id="k3a" class="pk" d="M-7,-5 L2,0 L-7,5 L-4,0z" opacity="0"/><path id="k3b" class="pk" d="M-7,-5 L2,0 L-7,5 L-4,0z" opacity="0"/>
+      <g class="lbl on" id="l_read" opacity="0"><rect x="166" y="66" width="124" height="22" rx="2"/><text x="228.0" y="80.5" text-anchor="middle">READS YOUR MENU</text></g>
+      <g class="lbl on" id="l_quote" opacity="0"><rect x="166" y="94" width="124" height="22" rx="2"/><text x="228.0" y="108.5" text-anchor="middle">QUOTES $12.96</text></g>
+      <g class="lbl hot" id="l_order" opacity="0"><rect x="300" y="116" width="160" height="22" rx="2"/><text x="380.0" y="130.5" text-anchor="middle">ORDER #42 · PICKUP 12:30</text></g>
+
+      <path id="k4a" class="pk" d="M-7,-5 L2,0 L-7,5 L-4,0z" opacity="0"/><path id="k4b" class="pk" d="M-7,-5 L2,0 L-7,5 L-4,0z" opacity="0"/><path id="k4c" class="pk" d="M-7,-5 L2,0 L-7,5 L-4,0z" opacity="0"/>
+      <g class="node" id="n4">
+        <rect class="blk" x="800" y="150" width="140" height="44" rx="4"/>
+        <circle class="sun" cx="816" cy="172" r="3"/>
+        <rect class="pslot" x="814" y="194" width="112" height="6"/>
+        <g id="tkt" opacity="0" transform="translate(0,-118)">
+          <rect class="ins" x="822" y="200" width="96" height="118"/>
+          <line class="fg" x1="834" y1="216" x2="880" y2="216"/><line class="fg" x1="834" y1="230" x2="896" y2="230"/><line class="fg" x1="834" y1="244" x2="872" y2="244"/>
+          <text class="tk" x="834" y="268">2 AL PASTOR</text><text class="tk" x="834" y="280">1 HORCHATA</text>
+          <rect class="sun" id="readyBtn" x="834" y="292" width="60" height="16" rx="2"/>
+          <text class="tkb" x="864" y="303" text-anchor="middle">READY</text>
+        </g>
+      </g>
+      <g class="lbl"><rect x="800" y="116" width="140" height="22" rx="2"/><text x="870.0" y="130.5" text-anchor="middle">YOUR KITCHEN</text></g>
+      <g class="lbl il"><rect x="776" y="344" width="216" height="22" rx="2"/><image href="assets/logos/clover.svg" x="784" y="348" width="14" height="14"/><image href="assets/logos/square.svg" x="802" y="348" width="14" height="14"/><use href="#i-printer" x="820" y="348" width="14" height="14"/><text x="842" y="358.5" text-anchor="start">CLOVER · SQUARE · PRINTER</text></g>
+      <g class="node" id="cook">
+        <path class="blk" d="M952,236 h30 a4,4 0 0 1 4,4 v6 h-38 v-6 a4,4 0 0 1 4,-4z"/>
+        <circle class="ins" cx="967" cy="258" r="11"/>
+        <path class="blk" d="M944,300 c0,-16 10,-24 23,-24 s23,8 23,24 v14 h-46z"/>
+      </g>
+      <g id="hand" opacity="0"><path class="fg" d="M0,0 c0,-8 -3,-13 -3,-19 c0,-4 5,-4 5,0 v9 l8,-2 c4,-1 5,2 5,6 v9"/></g>
+      <g class="lbl hot" id="l_tap" opacity="0"><rect x="800" y="372" width="140" height="22" rx="2"/><text x="870.0" y="386.5" text-anchor="middle">YOU TAP READY</text></g>
+      <g class="lbl on" id="l_text" opacity="0"><rect x="580" y="388" width="150" height="22" rx="2"/><text x="655.0" y="402.5" text-anchor="middle">CUSTOMER TEXTED 12:31</text></g>
+    </svg>
+    <div class="steps">
+      <div class="step">
+        <span class="n">Step 1</span>
+        <h3>Send a photo of your menu</h3>
+        <p>Or connect Clover, Square, or Toast and we read it directly. Add your Stripe, or we open one for you.</p>
+        <span class="who">You · 10 minutes</span>
+      </div>
+
+      <div class="step">
+        <span class="n">Step 2</span>
+        <h3>We build your page and wire your listings</h3>
+        <p>A pickup page under your name, set as the ordering link on Google, Apple, and Bing. Live in 3 hours.</p>
+        <span class="who">Us · 3 hours</span>
+      </div>
+
+      <div class="step">
+        <span class="n">Step 3</span>
+        <h3>Assistants find you and order</h3>
+        <p>They read your page, quote real prices, and place the order. The customer pays you, by card or at the counter.</p>
+        <span class="who">Automatic</span>
+      </div>
+
+      <div class="step">
+        <span class="n">Step 4</span>
+        <h3>The ticket prints. You tap Ready.</h3>
+        <p>On Clover or Square, or on a printer and a text. The customer gets a text. Nothing else changes in your kitchen.</p>
+        <span class="who">Your kitchen · 1 tap</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="agent">
+    <p class="eyebrow">What agent-ready means</p>
+    <h2>The assistant can read you, quote you, and order from you.</h2>
+    <p class="lede">One menu feeds both views. Your customer sees a page. The assistant reads the facts. A price or an 86 changes everywhere at once. Try it: text "86" an item and switch views.</p>
+    <div class="demo">
+      <div>
+        <div class="seg" role="group" aria-label="Choose a view">
+          <button type="button" id="vHuman" aria-pressed="true">Your customer sees</button>
+          <button type="button" id="vAgent" aria-pressed="false">The assistant reads</button>
+        </div>
+        <div class="view human" id="viewHuman">
+          <p class="t">Taqueria Sol</p>
+          <p class="s">● Open now · pickup ready in ~15 min · pay by card or at the counter</p>
+          <div class="row" data-item="al-pastor"><span>Al pastor taco</span><span class="p">$4.25</span></div>
+          <div class="row" data-item="carnitas"><span>Carnitas taco</span><span class="p">$4.25</span></div>
+          <div class="row" data-item="barbacoa"><span>Barbacoa taco</span><span class="p">$4.75</span></div>
+          <div class="row" data-item="tamales"><span>Tamales (2)</span><span class="p">$7.00</span></div>
+          <div class="row" data-item="horchata"><span>Horchata</span><span class="p">$3.50</span></div>
+        </div>
+        <pre class="view agent" id="viewAgent" hidden></pre>
+      </div>
+      <div>
+        <div class="controls">
+          <p class="hint"><strong>From the kitchen phone, text:</strong></p>
+          <div class="sms" id="sms">
+            <button class="chip" type="button" data-item="barbacoa" aria-pressed="false">86 barbacoa</button>
+            <button class="chip" type="button" data-item="tamales" aria-pressed="false">86 tamales</button>
+            <button class="chip" type="button" data-item="horchata" aria-pressed="false">86 horchata</button>
+          </div>
+          <p class="hint" id="smsReply">Reply from Counter: <em>Nothing 86'd. Full menu live everywhere.</em></p>
+        </div>
+        <ul class="plain" style="margin-top:22px">
+          <li>Live availability. An item you 86 by text is gone from every assistant within seconds.</li>
+          <li>Plain form controls an assistant can operate: quantity, pickup time, name, phone, pay now or at counter.</li>
+          <li>A machine-readable copy at <code>/menu.md</code> plus structured data, so crawlers get prices and hours without rendering anything.</li>
+          <li>No login, no captcha, no app. For the customer or for the assistant.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="works">
+    <p class="eyebrow">Works with what you already have</p>
+    <h2>Keep your POS. Keep your printer. Keep your Stripe.</h2>
+    <div class="works">
+      <div class="w"><div class="wm"><img class="bi" src="assets/logos/clover.svg" alt="">Clover</div><p>Menu and stock read from Clover. Orders land in Clover like any other ticket.</p></div>
+      <div class="w"><div class="wm"><img class="bi" src="assets/logos/square.svg" alt="">Square</div><p>Menu and stock read from Square. Orders land on your Square POS and kitchen display.</p></div>
+      <div class="w"><div class="wm"><img class="bi" src="assets/logos/toast.svg" alt="">Toast</div><p>Menu and stock read from Toast. Orders print on a printer we send you and text your phone.</p></div>
+      <div class="w"><div class="wm"><img class="bi" src="assets/logos/stripe.svg" alt="">Stripe</div><p>Every order pays out to your own Stripe account the same day. No Stripe yet? We open one with you.</p></div>
+      <div class="w"><div class="wm"><svg class="bi"><use href="#i-printer"/></svg>No POS</div><p>A photo of your menu is enough. Orders print on the printer and text your phone.</p></div>
+      <div class="w"><div class="wm"><img class="bi" src="assets/logos/google.svg" alt=""><img class="bi" src="assets/logos/apple.svg" alt=""><img class="bi" src="assets/logos/microsoftbing.svg" alt="">Listings</div><p>Your listings get your page as the pickup link, so assistants route orders to you, not to an app.</p></div>
+    </div>
+  </section>
+
+  <section id="price">
+    <p class="eyebrow">Price</p>
+    <div class="pricebox"><div class="big">$99<small>per month</small></div></div>
+    <ul class="pricelist">
+      <li>Per location</li>
+      <li>$0 per order</li>
+      <li>No contract, cancel any month</li>
+      <li>Card processing goes to your Stripe, not to us</li>
+    </ul>
+  </section>
+
+  <section id="faq">
+    <p class="eyebrow">Questions owners ask</p>
+    <h2>Straight answers</h2>
+    <div class="faq">
+      <details><summary>I'm on Toast. Does this work?</summary><p>Yes. We read your menu and stock from Toast. Tickets arrive by printer and text rather than inside Toast, because Toast does not let outside orders in without a partner deal. If that changes, you will hear it from us first.</p></details>
+      <details><summary>What if the assistant can't finish the order?</summary><p>It hands the customer your page with one tap and they finish in about twenty seconds. Either way the order is direct and commission-free. We test Claude, ChatGPT, and Google every month and tell you what each can do.</p></details>
+      <details><summary>What happens when I run out of something?</summary><p>Text "86 barbacoa" and it is gone from every assistant and from your page. Text "back barbacoa" to restore it. On Clover and Square, marking it sold out in the POS does the same automatically.</p></details>
+      <details><summary>Who handles refunds?</summary><p>You do, with the order in front of you. Nobody refunds on your behalf and bills you later. Customers who pay at the counter cannot dispute a card charge at all.</p></details>
+      <details><summary>Is there a contract?</summary><p>Month to month. Leave any time and take your customer list, menu, and order history with you as a file.</p></details>
+      <details><summary>Do you do delivery?</summary><p>No. Pickup only. Keep the apps for delivery if you want them; we never touch those orders.</p></details>
+    </div>
+  </section>
+</div>
+
+<div class="final" id="start">
+  <div class="wrap">
+    <p class="eyebrow">Get agent-ready</p>
+    <h2>Get your live page in 3 hours.</h2>
+    <p>Send a photo of your menu. We text you when your page is live.</p>
+    <!-- Signup form: not wired to a backend yet. To wire it, set action to your
+         endpoint (Formspree, a Netlify form, a Worker, etc.) and remove the
+         in-place confirmation handler in js/main.js so the browser posts for real. -->
+    <form id="signup" action="#" method="post">
+      <input type="text" name="restaurant" placeholder="Restaurant name" required aria-label="Restaurant name">
+      <input type="tel" name="phone" placeholder="Your mobile" required aria-label="Your mobile">
+      <button class="btn primary" type="submit">Text me the upload link</button>
+    </form>
+    <div class="fine">No sales call. One text with a link to send your menu photo and your Google listing.</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <footer>Counter is a working name. Statistics: BrightLocal 2026 Local Consumer Review Survey; Uberall, May 2026.</footer>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

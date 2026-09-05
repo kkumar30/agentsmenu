@@ -198,14 +198,19 @@
         <pre class="view agent" id="viewAgent" hidden></pre>
       </div>
       <div>
-        <div class="controls">
-          <p class="hint"><strong>From the kitchen phone, text:</strong></p>
-          <div class="sms" id="sms">
-            <button class="chip" type="button" data-item="barbacoa" aria-pressed="false">86 barbacoa</button>
-            <button class="chip" type="button" data-item="tamales" aria-pressed="false">86 tamales</button>
-            <button class="chip" type="button" data-item="horchata" aria-pressed="false">86 horchata</button>
+        <div class="thread" aria-label="Text thread between the kitchen phone and Counter">
+          <div class="thead"><span class="tname">Counter</span><span class="tnum">+1 402 555 0100 · Messages</span></div>
+          <div class="tbody" id="thread">
+            <div class="tb in">Menu is live. Text <b>86 barbacoa</b> to mark it sold out, or <b>back barbacoa</b> to restore.</div>
           </div>
-          <p class="hint" id="smsReply">Reply from Counter: <em>Nothing 86'd. Full menu live everywhere.</em></p>
+          <div class="tsend">
+            <span class="tlabel">Tap to send a text:</span>
+            <div class="chips" id="sms">
+              <button class="chip" type="button" data-item="barbacoa" aria-pressed="false">86 barbacoa</button>
+              <button class="chip" type="button" data-item="tamales" aria-pressed="false">86 tamales</button>
+              <button class="chip" type="button" data-item="horchata" aria-pressed="false">86 horchata</button>
+            </div>
+          </div>
         </div>
         <ul class="plain" style="margin-top:22px">
           <li>Live availability. An item you 86 by text is gone from every assistant within seconds.</li>

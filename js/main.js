@@ -108,7 +108,7 @@
   ];
   var out = {};
   var agentView = document.getElementById('viewAgent'), humanView = document.getElementById('viewHuman');
-  var reply = document.getElementById('smsReply');
+  var thread = document.getElementById('thread');
   function renderAgent() {
     var lines = ['# Taqueria Sol — pickup ordering', 'Open now · closes 21:00 · 412 Farnam St · +1 402 555 0142', 'Pickup ready in ~15 min. Pay by card or at the counter.', 'To order: open /order, or POST /order {items, pickup_time, name, phone}', '', '## Menu'];
     items.forEach(function (it) {
@@ -121,23 +121,29 @@
   function renderHuman() {
     Array.prototype.forEach.call(humanView.querySelectorAll('.row'), function (r) { r.classList.toggle('out', !!out[r.getAttribute('data-item')]); });
   }
-  function renderReply() {
-    var names = items.filter(function (i) { return out[i.id]; }).map(function (i) { return i.name.toLowerCase(); });
-    reply.innerHTML = 'Reply from Counter: <em>' + (names.length ? names.join(', ') + " marked sold out. Removed from Claude, ChatGPT, Google, and your page. Text “back " + names[0].split(' ')[0] + "” to restore." : "Nothing 86'd. Full menu live everywhere.") + '</em>';
+  function bubble(cls, html) {
+    var d = document.createElement('div'); d.className = 'tb ' + cls + ' new'; d.innerHTML = html; thread.appendChild(d); thread.scrollTop = thread.scrollHeight;
   }
   Array.prototype.forEach.call(document.querySelectorAll('#sms .chip'), function (b) {
     b.addEventListener('click', function () {
-      var id = b.getAttribute('data-item'); out[id] = !out[id];
+      var id = b.getAttribute('data-item'); var it = items.filter(function (i) { return i.id === id; })[0];
+      out[id] = !out[id];
+      bubble('out', out[id] ? '86 ' + id : 'back ' + id);
       b.setAttribute('aria-pressed', String(!!out[id]));
-      b.textContent = out[id] ? id + ' \u00b7 sold out \u00b7 tap to restore' : '86 ' + id;
-      renderHuman(); renderAgent(); renderReply();
+      b.textContent = (out[id] ? 'back ' : '86 ') + id;
+      renderHuman(); renderAgent();
+      setTimeout(function () {
+        bubble('in', out[id]
+          ? '<b>' + it.name + '</b> marked sold out. Removed from Claude, ChatGPT, Google, and your page. Text <b>back ' + id + '</b> to restore.'
+          : '<b>' + it.name + '</b> is back on the menu everywhere.');
+      }, 550);
     });
   });
   var vH = document.getElementById('vHuman'), vA = document.getElementById('vAgent');
   function show(agent) { humanView.hidden = agent; agentView.hidden = !agent; vH.setAttribute('aria-pressed', String(!agent)); vA.setAttribute('aria-pressed', String(agent)); }
   vH.addEventListener('click', function () { show(false); });
   vA.addEventListener('click', function () { show(true); });
-  renderAgent(); renderHuman(); renderReply();
+  renderAgent(); renderHuman();
 
   /* signup form: in-place confirmation only. Nothing is sent anywhere yet.
      To wire a backend: point the form's action at your endpoint and delete

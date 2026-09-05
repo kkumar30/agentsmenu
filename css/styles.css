@@ -143,11 +143,22 @@ p { max-width: 62ch; }
 .human .row.hide { display: none; }
 .agent { font-family: var(--mono); font-size: 12.5px; line-height: 1.6; padding: 18px 20px; margin: 0; white-space: pre-wrap; background: var(--paper-2); }
 .agent b { color: #B5461F; font-weight: 600; }
-.controls { display: grid; gap: 12px; margin-top: 16px; }
-.controls .sms { display: flex; gap: 8px; flex-wrap: wrap; }
-.controls button.chip { font-family: var(--mono); font-size: 13px; padding: 8px 12px; border: 1.5px solid var(--ink); background: transparent; color: var(--ink); border-radius: 20px; cursor: pointer; }
-.controls button.chip[aria-pressed="true"] { background: var(--out); border-color: var(--out); color: #FFFFFF; }
-.controls .hint { font-size: 14px; color: var(--ink-2); margin: 0; }
+.thread { border: 1px solid var(--rule); border-radius: 12px; background: var(--card); overflow: hidden; max-width: 360px; }
+.thead { padding: 10px 14px; border-bottom: 1px solid var(--rule); background: var(--paper-2); display: flex; flex-direction: column; }
+.thead .tname { font-family: var(--display); font-weight: 700; font-size: 14px; }
+.thead .tnum { font-family: var(--mono); font-size: 10.5px; color: var(--ink-3); }
+.tbody { padding: 14px; display: grid; gap: 8px; min-height: 190px; max-height: 260px; overflow-y: auto; align-content: start; }
+.tb { max-width: 84%; padding: 8px 12px; border-radius: 14px; font-size: 14px; line-height: 1.4; }
+.tb.in { background: var(--paper-2); border-bottom-left-radius: 4px; justify-self: start; }
+.tb.out { background: var(--ink); color: var(--paper); border-bottom-right-radius: 4px; justify-self: end; font-family: var(--mono); font-size: 13px; }
+.tb.new { animation: pop .3s ease; }
+@keyframes pop { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .tb.new { animation: none; } }
+.tsend { border-top: 1px solid var(--rule); padding: 10px 12px 12px; background: var(--paper-2); }
+.tsend .tlabel { display: block; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip { font-family: var(--mono); font-size: 13px; padding: 7px 12px; border: 1.5px solid var(--ink); background: var(--card); color: var(--ink); border-radius: 20px; cursor: pointer; }
+.chip[aria-pressed="true"] { border-style: dashed; color: var(--ink-2); }
 ul.plain { padding-left: 20px; font-size: 15.5px; color: var(--ink-2); margin: 0 0 18px; }
 ul.plain li { margin-bottom: 6px; }
 

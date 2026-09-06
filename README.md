@@ -1,6 +1,6 @@
-# Counter — landing page
+# Agents Menu — landing page
 
-Static landing page for **Counter**, agent-ready pickup ordering for independent restaurants: a live page that Claude, ChatGPT, and Google can find, read, and order from, with the ticket sent straight to the kitchen.
+Static landing page for **Agents Menu** (agentsmenu.com), agent-ready pickup ordering for independent restaurants: a live page that Claude, ChatGPT, and Google can find, read, and order from, with the ticket sent straight to the kitchen.
 
 No build step, no framework, no bundler. Plain HTML, one CSS file, one JS file. The only external resource is Google Fonts.
 
@@ -52,7 +52,6 @@ Sizes are set in CSS (`.bi`, `.works-row .bi`, `.appname .bi`), not in the image
 
 ## Known placeholders
 
-- **"Counter" is a working name** (the footer says so). Rename in `index.html` (`<title>`, meta tags, nav logo, footer, the "Reply from Counter" line in `js/main.js`) and `assets/favicon.svg`.
 - **The signup form posts nowhere.** It is a real `<form method="post" action="#">` with an in-place confirmation handled in `js/main.js`. To wire it, point `action` at your endpoint (Formspree, Netlify Forms, a small worker) and remove that handler. There is a comment at both spots.
 - **$99 a month is a proposal**, not a committed price. It appears in the hero lead, the Price section, and the meta description.
 - **No `og:url` / `og:image` yet.** Add them once the site has a domain and a share image.

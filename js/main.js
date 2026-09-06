@@ -152,9 +152,9 @@
      the form id after /d/e/. Paste them below. Leave FORM_ID empty to keep
      the form in demo mode (confirms in place, sends nothing). */
   var WAITLIST = {
-    FORM_ID: '',            // e.g. '1FAIpQLSd...'
-    FIELD_RESTAURANT: '',   // e.g. 'entry.123456789'
-    FIELD_PHONE: ''         // e.g. 'entry.987654321'
+    FORM_ID: '1FAIpQLSdEHtoT8N9PPPGgIL7a3bs23iA1KdHK24XsXAcY4DoirpZgdA',
+    FIELD_RESTAURANT: 'entry.1157436917',
+    FIELD_PHONE: 'entry.663614511'
   };
   var signup = document.getElementById('signup'), formmsg = document.getElementById('formmsg');
   if (signup) {

@@ -177,7 +177,7 @@
         method: 'POST', mode: 'no-cors', body: body,
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
       }).then(done, function () {
-        btn.disabled = false; btn.textContent = 'Add to waitlist';
+        btn.disabled = false; btn.textContent = 'Join waitlist';
         formmsg.textContent = 'Could not send just now. Try again in a minute.'; formmsg.className = 'formmsg err';
       });
       function done() {

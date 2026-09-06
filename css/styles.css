@@ -203,7 +203,8 @@ ul.plain li { margin-bottom: 6px; }
 .final input:focus-visible { outline: 2px solid #F2B532; border-color: #F2B532; }
 .final .btn.primary { background: #D64B2A; border-color: #D64B2A; color: #FFFFFF; }
 .final .fine { color: #EEEBE2; opacity: 0.65; }
-footer { padding: 28px 0 56px; font-family: var(--mono); font-size: 12px; color: var(--ink-3); }
+footer { padding: 28px 0 56px; font-family: var(--mono); font-size: 12px; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: 6px 24px; }
+footer a { color: var(--ink-2); text-underline-offset: 3px; }
 
 /* waitlist form */
 .final .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }

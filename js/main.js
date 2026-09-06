@@ -145,16 +145,45 @@
   vA.addEventListener('click', function () { show(true); });
   renderAgent(); renderHuman();
 
-  /* signup form: in-place confirmation only. Nothing is sent anywhere yet.
-     To wire a backend: point the form's action at your endpoint and delete
-     this handler (or replace it with a fetch() that posts the fields). */
-  var signup = document.getElementById('signup');
+  /* Waitlist form -> Google Form, submitted in the background.
+     Setup (one time): create a Google Form with two short-answer questions,
+     Restaurant name and Mobile number. Open the form, "Get pre-filled link",
+     fill both, copy the link: the URL has entry.NNNN=... for each field and
+     the form id after /d/e/. Paste them below. Leave FORM_ID empty to keep
+     the form in demo mode (confirms in place, sends nothing). */
+  var WAITLIST = {
+    FORM_ID: '',            // e.g. '1FAIpQLSd...'
+    FIELD_RESTAURANT: '',   // e.g. 'entry.123456789'
+    FIELD_PHONE: ''         // e.g. 'entry.987654321'
+  };
+  var signup = document.getElementById('signup'), formmsg = document.getElementById('formmsg');
   if (signup) {
     signup.addEventListener('submit', function (e) {
       e.preventDefault();
       var btn = signup.querySelector('button');
-      btn.textContent = 'Got it, we will text you';
-      btn.disabled = true;
+      var restaurant = signup.restaurant.value.trim(), phone = signup.phone.value.trim();
+      var digits = phone.replace(/[^0-9]/g, '');
+      formmsg.className = 'formmsg';
+      if (restaurant.length < 2) { formmsg.textContent = 'Tell us the restaurant name.'; formmsg.className += ' err'; signup.restaurant.focus(); return; }
+      if (digits.length < 7) { formmsg.textContent = "That mobile number doesn't look right."; formmsg.className += ' err'; signup.phone.focus(); return; }
+      if (signup.website.value) { done(); return; }               /* honeypot filled: pretend success */
+      if (!WAITLIST.FORM_ID) { done(); return; }                    /* demo mode */
+      btn.disabled = true; btn.textContent = 'Adding\u2026';
+      var body = new URLSearchParams();
+      body.set(WAITLIST.FIELD_RESTAURANT, restaurant);
+      body.set(WAITLIST.FIELD_PHONE, phone);
+      /* Google Forms accepts cross-origin POSTs but returns an opaque response; treat "sent" as success. */
+      fetch('https://docs.google.com/forms/d/e/' + WAITLIST.FORM_ID + '/formResponse', {
+        method: 'POST', mode: 'no-cors', body: body,
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      }).then(done, function () {
+        btn.disabled = false; btn.textContent = 'Add to waitlist';
+        formmsg.textContent = 'Could not send just now. Try again in a minute.'; formmsg.className = 'formmsg err';
+      });
+      function done() {
+        btn.disabled = true; btn.textContent = "You're on the list";
+        formmsg.textContent = 'Thanks, ' + restaurant + '. We\u2019ll text ' + phone + ' when your page is ready to build.';
+      }
     });
   }
 })();

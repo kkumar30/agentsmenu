@@ -265,15 +265,16 @@
     <p class="eyebrow">Get agent-ready</p>
     <h2>Get your live page in 3 hours.</h2>
     <p>Send a photo of your menu. We text you when your page is live.</p>
-    <!-- Signup form: not wired to a backend yet. To wire it, set action to your
-         endpoint (Formspree, a Netlify form, a Worker, etc.) and remove the
-         in-place confirmation handler in js/main.js so the browser posts for real. -->
-    <form id="signup" action="#" method="post">
-      <input type="text" name="restaurant" placeholder="Restaurant name" required aria-label="Restaurant name">
-      <input type="tel" name="phone" placeholder="Your mobile" required aria-label="Your mobile">
-      <button class="btn primary" type="submit">Text me the upload link</button>
+    <!-- Waitlist form. Posts in the background to a Google Form (config at the top of js/main.js).
+         Visitors never leave this page. The "website" field is a honeypot: hidden, must stay empty. -->
+    <form id="signup" action="#" method="post" novalidate>
+      <input type="text" name="restaurant" placeholder="Restaurant name" required aria-label="Restaurant name" autocomplete="organization">
+      <input type="tel" name="phone" placeholder="Your mobile" required aria-label="Your mobile" autocomplete="tel">
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+      <button class="btn primary" type="submit">Add to waitlist</button>
+      <p class="formmsg" id="formmsg" role="status" aria-live="polite"></p>
     </form>
-    <div class="fine">No sales call. One text with a link to send your menu photo and your Google listing.</div>
+    <div class="fine">No sales call. We text you when your page is ready to build.</div>
   </div>
 </div>
 
